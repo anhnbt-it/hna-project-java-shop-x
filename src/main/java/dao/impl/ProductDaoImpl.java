@@ -1,28 +1,29 @@
-package dao;
+package dao.impl;
 
+import dao.DBUtil;
+import dao.ProductDao;
 import entities.Product;
 
 import java.sql.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductDAOImpl implements ProductDAO {
+public class ProductDaoImpl implements ProductDao {
 
     private final String SQL_INSERT = "INSERT INTO `products` (`name`, `price`, `created_at`)" +
             " VALUES (?, ?, ?)";
     private static final String SQL_UPDATE
             = "UPDATE EMP SET ENAME = '%s', JOB = '%s', HIREDATE = "
             + "TO_DATE('%s', 'yyyy/mm/dd'), SAL = %f WHERE EMPNO = %d";
-
     private static final String SQL_DELETE = "DELETE FROM EMP WHERE EMPNO = %d";
     private static final String SQL_SELECT_ALL = "SELECT * FROM EMP";
     private static final String SQL_SELECT_ONE = "SELECT * FROM EMP WHERE EMPNO = %d";
 
     private Connection conn;
 
-    public ProductDAOImpl() {
+    public ProductDaoImpl() {
         this.conn = DBUtil.getConnection();
     }
 
@@ -84,7 +85,7 @@ public class ProductDAOImpl implements ProductDAO {
                 product.setId(rs.getInt("id"));
                 product.setName(rs.getString("name"));
                 product.setPrice(rs.getDouble("price"));
-                product.setCreatedAt(rs.getObject("created_at", LocalDateTime.class));
+                product.setCreatedAt(rs.getObject("created_at", LocalDate.class));
                 products.add(product);
             }
             rs.close();

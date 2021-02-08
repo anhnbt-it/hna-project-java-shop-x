@@ -1,6 +1,6 @@
-package controller;
+package menu;
 
-public class AdminController {
+public class AdminManager {
 
     //viewOrders
     //viewCustomers

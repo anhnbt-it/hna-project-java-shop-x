@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public interface IDAO<T, ID> {
+public interface IDao<T, ID> {
 
     boolean save(T entity) throws SQLException;
 

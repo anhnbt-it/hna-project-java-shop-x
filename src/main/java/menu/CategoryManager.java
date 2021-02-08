@@ -1,6 +1,6 @@
-package controller;
+package menu;
 
-public class CategoryController {
+public class CategoryManager {
 
     //category
 

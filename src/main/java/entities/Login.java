@@ -1,4 +1,4 @@
-package resource.admin;
+package entities;
 
 public class Login {
     String username;
