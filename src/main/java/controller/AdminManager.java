@@ -1,4 +1,4 @@
-package menu;
+package controller;
 
 public class AdminManager {
 

@@ -1,6 +1,6 @@
-package dao;
+package model;
 
-import entities.Product;
+import entity.Product;
 
 public interface ProductDao extends IDao<Product, Integer> {
 }

@@ -1,8 +1,8 @@
-package dao.impl;
+package model.impl;
 
-import dao.DBUtil;
-import dao.ProductDao;
-import entities.Product;
+import model.DBUtil;
+import model.ProductDao;
+import entity.Product;
 
 import java.sql.*;
 import java.time.LocalDate;

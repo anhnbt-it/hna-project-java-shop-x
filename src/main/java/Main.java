@@ -1,5 +1,5 @@
-import dao.DBUtil;
-import entities.Product;
+import model.DBUtil;
+import entity.Product;
 import service.ProductServiceImpl;
 
 import java.sql.Connection;

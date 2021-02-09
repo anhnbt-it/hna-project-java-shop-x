@@ -1,6 +1,6 @@
 package cart;
 
-import entities.Product;
+import entity.Product;
 
 public class ShoppingCartItem {
     private Product product;

@@ -1,6 +1,6 @@
 package validate;
 
-import entities.Login;
+import entity.Login;
 
 public class LoginValidate {
 

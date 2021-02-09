@@ -1,7 +1,7 @@
-package menu;
+package controller;
 
-import dao.ProductDao;
-import entities.Product;
+import model.ProductDao;
+import entity.Product;
 
 import java.sql.SQLException;
 import java.util.List;
