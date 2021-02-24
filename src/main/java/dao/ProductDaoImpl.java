@@ -7,25 +7,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductDAOImpl implements IProductDAO {
+public class ProductDaoImpl implements IProductDao {
 
-    private final String INSERT_SQL = "INSERT INTO `products` (`name`, `price`)" +
-            " VALUES (?, ?)";
+    private final Connection conn;
 
-    private Connection conn;
-
-    public ProductDAOImpl() {
+    public ProductDaoImpl() {
         this.conn = DBUtil.getConnection();
     }
 
     @Override
     public int save(Product entity) throws SQLException {
         int rowCount = -1;
-        try (PreparedStatement pstmt = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
+        String sql = "INSERT INTO `products` (`name`, `price`)" +
+                " VALUES (?, ?)";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             conn.setAutoCommit(false);
 
             pstmt.setString(1, entity.getName());
-            pstmt.setDouble(2, entity.getPrice());
+            pstmt.setBigDecimal(2, entity.getPrice());
             rowCount = pstmt.executeUpdate();
             ResultSet rs = pstmt.getGeneratedKeys();
 
@@ -78,7 +77,7 @@ public class ProductDAOImpl implements IProductDAO {
                 Product product = new Product();
                 product.setId(rs.getInt("id"));
                 product.setName(rs.getString("name"));
-                product.setPrice(rs.getDouble("price"));
+                product.setPrice(rs.getBigDecimal("price"));
                 products.add(product);
             }
             rs.close();
@@ -119,11 +118,6 @@ public class ProductDAOImpl implements IProductDAO {
     @Override
     public void delete(Product entity) {
 
-    }
-
-    private void displayRow(String title, ResultSet rs) {
-        System.out.println(title);
-        System.out.println();
     }
 }
 

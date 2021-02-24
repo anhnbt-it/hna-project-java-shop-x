@@ -14,7 +14,7 @@ public class DAOFactory {
         return daoFactory;
     }
 
-    public IProductDAO getProductDAO() {
-        return new ProductDAOImpl();
+    public IProductDao getProductDAO() {
+        return new ProductDaoImpl();
     }
 }

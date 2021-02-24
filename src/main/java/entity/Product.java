@@ -1,24 +1,20 @@
 package entity;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Product implements Serializable {
 
     private Integer id;
     private String name;
-    private Double price;
+    private BigDecimal price;
     private String description;
-    private Date createdDateTime;
+    private LocalDate createdAt;
+    private Integer categoryId;
 
     public Product() {
-    }
-
-    public Product(String name, Double price, String description) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
+        this.createdAt = LocalDate.now();
     }
 
     public Integer getId() {
@@ -37,11 +33,11 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -53,20 +49,19 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public Date getCreatedDateTime() {
-        return createdDateTime;
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedDateTime(Date createdDateTime) {
-        this.createdDateTime = createdDateTime;
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 }

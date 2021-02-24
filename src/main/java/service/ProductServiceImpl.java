@@ -1,7 +1,7 @@
 package service;
 
 import dao.DAOFactory;
-import dao.IProductDAO;
+import dao.IProductDao;
 import entity.Product;
 
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class ProductServiceImpl {
 
-    private IProductDAO iProductDAO;
+    private IProductDao iProductDAO;
 
     public ProductServiceImpl() {
         this.iProductDAO = DAOFactory.getInstance().getProductDAO();

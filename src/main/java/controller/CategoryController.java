@@ -1,12 +1,30 @@
 package controller;
 
-public class CategoryController {
+import java.util.Scanner;
 
-    //category
+public class CategoryController implements BaseController {
 
+    @Override
+    public void create(Scanner scanner) {
+        displayTitle("--- CREATE CATEGORY");
+        System.out.println();
+    }
 
-    public void categories() {
-        // categoryFacade.findAll();
-        //categoryId
+    private void displayTitle(String title) {
+    }
+
+    @Override
+    public void show(Scanner scanner) {
+
+    }
+
+    @Override
+    public void update(Scanner scanner) {
+
+    }
+
+    @Override
+    public void delete(Scanner scanner) {
+
     }
 }
