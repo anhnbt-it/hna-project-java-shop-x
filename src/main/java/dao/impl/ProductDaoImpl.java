@@ -1,5 +1,7 @@
-package dao;
+package dao.impl;
 
+import dao.DBUtil;
+import dao.IProductDao;
 import entity.Product;
 
 import java.sql.*;

@@ -8,11 +8,11 @@ public interface IDAO<T, ID> {
 
     int save(T entity) throws SQLException;
 
-    Optional<T> findById(ID id);
+    Optional<T> findById(ID id) throws SQLException;
 
     boolean existsById(ID id);
 
-    List<T> findAll();
+    List<T> findAll() throws SQLException;
 
     long count();
 

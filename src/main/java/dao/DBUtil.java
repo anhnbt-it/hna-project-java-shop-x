@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBUtil {
 
-    public static String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=shopx_db;user=anhnbt;password=KhoaiTay@2019";
+    public static String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=quanlysanpham;user=sa;password=KhoaiTay@2019";
 
     public static Connection getConnection() {
         Connection conn = null;

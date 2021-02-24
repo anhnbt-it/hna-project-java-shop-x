@@ -1,10 +1,12 @@
+import controller.CategoryController;
 import entity.Product;
 import service.ProductServiceImpl;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,6 +18,7 @@ public class Main {
         final Scanner scanner = new Scanner(System.in);
         Connection conn = null;
         ProductServiceImpl productService = new ProductServiceImpl();
+        CategoryController categoryController = new CategoryController();
         do {
             System.out.println("========================================================="
                     + "\n\t\tWelcome to the Shop X!"
@@ -25,7 +28,10 @@ public class Main {
             System.out.println("\t2. Create a new product");
             System.out.println("\t4. View all customers");
             System.out.println("\t5. View all orders");
-            System.out.println("\t5. Sign out");
+            System.out.println("\t6. Sign out");
+            System.out.println("\t7. List all category");
+            System.out.println("\t8. Create a new category");
+            System.out.println("\t9. Edit a category");
             System.out.println("\t10. Quit the application");
             System.out.print("Enter you choice: ");
 
@@ -44,6 +50,15 @@ public class Main {
                 case 4:
                     System.out.println("Customer details");
                     break;
+                case 7:
+                    categoryController.show(scanner);
+                    break;
+                case 8:
+                    categoryController.create(scanner);
+                    break;
+                case 9:
+                    categoryController.update(scanner);
+                    break;
                 case 10:
                     System.out.println("Exiting application...bye.");
                     System.exit(0);
@@ -60,12 +75,12 @@ public class Main {
             String name = scanner.nextLine();
 
             System.out.print("\nEnter the Product's price: ");
-            double price = scanner.nextDouble();
+            BigDecimal price = scanner.nextBigDecimal();
 
             Product product = new Product();
             product.setName(name);
             product.setPrice(price);
-            product.setCreatedDateTime(new Date());
+            product.setCreatedAt(LocalDate.now());
 
             productService.createProduct(product);
             System.out.println("Created product record with name: " + product.getName());

@@ -21,7 +21,7 @@ public class ProductController {
         Product product = new Product();
         product.setName(scanner.nextLine());
         System.out.println("Enter the price: ");
-        product.setPrice(scanner.nextDouble());
+        product.setPrice(scanner.nextBigDecimal());
         productServiceImpl.createProduct(product);
     }
 
